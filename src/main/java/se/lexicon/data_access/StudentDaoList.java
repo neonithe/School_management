@@ -26,15 +26,26 @@ public class StudentDaoList implements StudentDao{
     }
     @Override
     public List<Student> findByName(String name) {
-        return null;
+        List<Student> tempArray = new ArrayList<>();
+            for(Student student : students){
+                if(student.getName() == name){
+                    tempArray.add(student);
+                }
+            }
+        return tempArray;
     }
     @Override
     public Student findById(int id) {
-        return null;
+        for(Student student : students){
+            if(student.getId() == id){
+                return student;
+            }
+        }return null;
     }
     @Override
     public boolean deleteStudent(Student student) {
-        return false;
+        students.remove(student);
+        return true;
     }
 
 
