@@ -19,7 +19,7 @@ public class App
     {
 
         StudentDao test = new StudentDaoList();
-        Student student = new Student(StudentId.nextId(),"Test","@Email","Address");
+        Student student0 = new Student(StudentId.nextId(),"Test","@Email","Address");
         Student student1 = new Student(StudentId.nextId(),"Test","@Email2","Address");
         Student student2 = new Student(StudentId.nextId(),"Test","@Email3","Address");
         Student student3 = new Student(StudentId.nextId(),"Test","@Email4","Address");
@@ -27,22 +27,15 @@ public class App
         Course course = new Course(CourseId.nextId(),"Test", LocalDate.parse("2020-04-06"),7);
 
         // course.register(student);
-        test.saveStudent(student);
+        test.saveStudent(student0);
+        test.saveStudent(student1);
         test.saveStudent(student2);
         test.saveStudent(student3);
         test.saveStudent(student4);
 
-        test.find("@Email");
-
+        System.out.println(test.findByEmail("@Email4").getId());
+        test.findByEmail("Kebab");
 
     }
-
-/**    public Student findEmail(String email){
-        if(students.contains(email)){
-            System.out.println();
-        }
-    }**/
-
-
 
 }

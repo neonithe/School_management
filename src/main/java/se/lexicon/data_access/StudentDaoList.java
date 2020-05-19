@@ -19,7 +19,7 @@ public class StudentDaoList implements StudentDao{
     @Override
     public Student findByEmail(String email) {
         for(Student student : students){
-            if(students.contains(email)) {
+            if(student.getEmail() == email) {
                 return student;
             }}
         return null;
@@ -36,13 +36,6 @@ public class StudentDaoList implements StudentDao{
     public boolean deleteStudent(Student student) {
         return false;
     }
-    @Override
-    public void find(String email) {
-        for(Student p : students) {
-            if (p.getEmail() == email) {
-                System.out.println("Found him");
-            }
-        }
-    }
+
 
 }
