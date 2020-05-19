@@ -36,13 +36,6 @@ public class App
         test.saveStudent(student4); students.add(student4);
 
         // course.register(student);
-        System.out.println(test.returnList());
-        test.deleteStudent(student0);
-        test.deleteStudent(student1);
-        test.deleteStudent(student2);
-        System.out.println(test.returnList());
-
-
 
 
 
