@@ -7,7 +7,7 @@ public class Student {
     private String email;
     private String address;
 
-
+    /*** CONSTRUCTOR ***/
     public Student(int id, String name, String email, String address) {
         this.id = id;
         setName(name);
@@ -15,6 +15,7 @@ public class Student {
         setAddress(address);
     }
 
+    /*** GETTERS AND SETTERS ***/
     public int getId() {
         return id;
     }

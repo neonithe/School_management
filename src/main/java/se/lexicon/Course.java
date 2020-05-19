@@ -47,7 +47,6 @@ public class Course {
     public void register(Student student){
         students.add(student);
     }
-
     public void unregister(Student student){
         students.remove(student);
     }
