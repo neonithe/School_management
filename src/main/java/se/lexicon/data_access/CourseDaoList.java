@@ -1,7 +1,6 @@
 package se.lexicon.data_access;
 
 import se.lexicon.Course;
-import se.lexicon.Student;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -36,9 +35,9 @@ public class CourseDaoList implements CourseDao{
     }
     @Override
     public List<Course> findByDate(LocalDate date) {
-        List<Course> tempArray = new ArrayList<>();
+      List<Course> tempArray = new ArrayList<>();
         for(Course course : courses){
-            if(course.getStartDate() == date){
+            if(course.getStartDate().isEqual(date)){
                 tempArray.add(course);
             }
         }
@@ -53,4 +52,5 @@ public class CourseDaoList implements CourseDao{
         courses.remove(course);
         return true;
     }
+
 }

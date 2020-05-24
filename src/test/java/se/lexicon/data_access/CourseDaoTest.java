@@ -22,7 +22,7 @@ public class CourseDaoTest {
     @Before
     public void setup(){
         Course testCourse0 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-01-01"),1);
-        Course testCourse1 = new Course(CourseId.nextId(),"TestC2", LocalDate.parse("2020-02-01"),2);
+        Course testCourse1 = new Course(CourseId.nextId(),"TestC2", LocalDate.parse("2023-01-01"),2);
         Course testCourse2 = new Course(CourseId.nextId(),"TestC3", LocalDate.parse("2023-01-01"),3);
         testInterface.saveCourse(testCourse0); testInterface.saveCourse(testCourse0); testInterface.saveCourse(testCourse0);
         testInterface.saveCourse(testCourse1);
@@ -31,6 +31,7 @@ public class CourseDaoTest {
     }
     @After
     public void destroy(){
+        testInterface.findAll().clear();
         CourseId.reset();
 
     }
@@ -58,36 +59,41 @@ public class CourseDaoTest {
     @Test
     public void find_by_name_return_length_of_list(){
 
-        //Return length of list
+        //Return length of list should be 3 of TestC1
         int actual = testInterface.findByName("TestC1").size();
 
-  /*      for(Course p : testInterface.findByName("TestC1")) {
-            System.out.println(p.getCourseName());
-        }*/
         System.out.println(actual);
         for(Course pp : testInterface.findAll()){
             System.out.println(pp.getCourseName());
         }
 
-
-      //  assertEquals(2,actual);
+        assertEquals(3,actual);
 
     }
-/*    @Test
-    public void find_by_id_return_name_of_id(){
+   @Test
+    public void find_by_date_return_name_of_id() {
 
-        String actual = testInterface.findById(1).getName();
+       // Result should be : 2 in size
+       int actual = testInterface.findByDate(LocalDate.parse("2023-01-01")).size();
 
-        assertEquals("Test1",actual);
+       assertEquals(2, actual);
+   }
+    @Test
+    public void find_all_return_number_of_list(){
+
+        //Should return 5
+       int actual = testInterface.findAll().size();
+
+       assertEquals(5,actual);
 
     }
     @Test
     public void delete_from_List_return_true(){
 
-        Student testStudent = new Student(5,"Deleted","Deleted","Deleted");
+        Course testCourse = new Course(5,"Deleted",LocalDate.parse("2020-01-01"),1);
 
-        assertTrue(testInterface.deleteStudent(testStudent));
+        assertTrue(testInterface.removeCourse(testCourse));
 
-    }*/
+    }
 
 }

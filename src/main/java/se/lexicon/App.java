@@ -5,6 +5,7 @@ import se.lexicon.data_access.CourseDao;
 import se.lexicon.data_access.CourseDaoList;
 import se.lexicon.data_access.StudentDao;
 import se.lexicon.data_access.StudentDaoList;
+import sun.rmi.server.LoaderHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,18 +26,34 @@ public class App
         CourseDao getCourse = new CourseDaoList();
 
         Course course1 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-06"),7);
-        Course course2 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-07"),8);
+        Course course2 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-06"),8);
         Course course3 = new Course(CourseId.nextId(),"TestC2", LocalDate.parse("2020-04-08"),9);
         getCourse.saveCourse(course1);
         getCourse.saveCourse(course2);
         getCourse.saveCourse(course3);
 
 
-        for(Course p : getCourse.findByName("TestC1")) {
+  //      for(Course p : getCourse.findByName("TestC1")) {
+    //        System.out.println(p.getCourseName());
+      //  }
+
+
+        for(Course p : getCourse.findByDate(LocalDate.parse("2020-04-06"))){
             System.out.println(p.getCourseName());
         }
+        System.out.println(getCourse.findByDate(LocalDate.parse("2020-04-06")).size());
 
-        System.out.println(getCourse.findByName("TestC1").size());
+        LocalDate date = LocalDate.parse("2020-04-07");
+
+        if(course1.getStartDate().isEqual(date)){
+                System.out.println("True");
+                System.out.println(date);
+                System.out.println(course1.getStartDate());
+        }else{
+            System.out.println("False");
+        }
+
+        //System.out.println(getCourse.findByName("TestC1").size());
 
     }
 
