@@ -8,6 +8,7 @@ import se.lexicon.CourseId;
 import se.lexicon.Student;
 import se.lexicon.StudentId;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Arrays;
 
@@ -81,7 +82,7 @@ public class CourseDaoTest {
     @Test
     public void find_all_return_number_of_list(){
 
-        //Should return 5
+        //Should return all courses is 5
        int actual = testInterface.findAll().size();
 
        assertEquals(5,actual);
