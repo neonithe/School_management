@@ -32,28 +32,23 @@ public class App
         getCourse.saveCourse(course2);
         getCourse.saveCourse(course3);
 
+        Student student0 = new Student(StudentId.nextId(),"TestS1","@Email","Address");
+        Student student1 = new Student(StudentId.nextId(),"TestS1","@Email2","Address");
+        Student student2 = new Student(StudentId.nextId(),"TestS2","@Email3","Address");
+       // Course course1 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-06"),7);
 
-  //      for(Course p : getCourse.findByName("TestC1")) {
-    //        System.out.println(p.getCourseName());
-      //  }
+        getCourse.saveCourse(course1).register(student0);
+        getCourse.saveCourse(course1).register(student1);
+        getCourse.saveCourse(course1).register(student2);
 
+        System.out.println(course1.getStudents().size());
+       // getCourse.saveCourse(course1).unregister(student0);
+        System.out.println(course1.getStudents().size());
 
-        for(Course p : getCourse.findByDate(LocalDate.parse("2020-04-06"))){
-            System.out.println(p.getCourseName());
-        }
-        System.out.println(getCourse.findByDate(LocalDate.parse("2020-04-06")).size());
-
-        LocalDate date = LocalDate.parse("2020-04-07");
-
-        if(course1.getStartDate().isEqual(date)){
-                System.out.println("True");
-                System.out.println(date);
-                System.out.println(course1.getStartDate());
-        }else{
-            System.out.println("False");
+        for(Student p : course1.getStudents()){
+            System.out.println(p.getName());
         }
 
-        //System.out.println(getCourse.findByName("TestC1").size());
 
     }
 
@@ -97,6 +92,31 @@ public class App
 
  System.out.println(test.findByName("Test").size());
  System.out.println(test.findById(1).getName());
+
+
+ for(Course p : getCourse.findByDate(LocalDate.parse("2020-04-06"))){
+ System.out.println(p.getCourseName());
+ }
+ System.out.println(getCourse.findByDate(LocalDate.parse("2020-04-06")).size());
+
+ LocalDate date = LocalDate.parse("2020-04-07");
+
+ if(course1.getStartDate().isEqual(date)){
+ System.out.println("True");
+ System.out.println(date);
+ System.out.println(course1.getStartDate());
+ }else{
+ System.out.println("False");
+ }
+
+ //      for(Course p : getCourse.findByName("TestC1")) {
+ //        System.out.println(p.getCourseName());
+ //  }
+
+
+
+
+ //System.out.println(getCourse.findByName("TestC1").size());
 
  ******************************************* Old code
 

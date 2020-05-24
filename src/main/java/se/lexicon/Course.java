@@ -57,5 +57,4 @@ public class Course {
         students.remove(student);
     }
 
-
 }
