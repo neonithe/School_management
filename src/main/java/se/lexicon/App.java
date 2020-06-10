@@ -13,8 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import static se.lexicon.Menu.addCourse;
-import static se.lexicon.Menu.findCourse;
+import static se.lexicon.Menu.*;
 
 /**
 
@@ -77,12 +76,15 @@ public class App
                     break;
                 case 2:
                     System.out.println("Not done");
+                    addStudent();
                     break;
                 case 3:
                     System.out.println("Not done");
+                    addToCourse();
                     break;
                 case 4:
                     System.out.println("Not done");
+                    removeFromCourse();
                     break;
                 case 5:
                     System.out.println("Not done");

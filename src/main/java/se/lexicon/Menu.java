@@ -60,7 +60,40 @@ public class Menu {
         String adre = input().nextLine();
 
         Student student = new Student(StudentId.nextId(), name, mail, adre);
+        getStudent.saveStudent(student);
+
         System.out.println("Student added");
+    }
+    public static void addToCourse(){
+        //  test1.saveCourse(course1).register(student0);
+        System.out.println("--- Add student to course ---");
+        System.out.print("Enter course ID:");
+        int idStr = input().nextInt();
+        Course course = getCourse.findById(idStr);
+
+        System.out.print("Enter student ID:");
+        int idStr2 = input().nextInt();
+        Student student = getStudent.findById(idStr2);
+
+        course.register(student);
+        System.out.println("Student added to course");
+
+    }
+    public static void removeFromCourse(){
+        System.out.println("Remove student from course");
+        System.out.print("Course ID: ");
+        int idInt = input().nextInt();
+        Course course = getCourse.findById(idInt);
+
+        System.out.println("Student ID: ");
+        int idInt2 = input().nextInt();
+        Student student = getStudent.findById(idInt2);
+
+        course.unregister(student);
+
+    }
+    public static void findStudent(){
+
     }
     public static void findCourse(){
         boolean runUntil = true;
