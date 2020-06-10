@@ -26,7 +26,25 @@ import static se.lexicon.Menu.findCourse;
 **/
 public class App
 {
+    private static CourseDao getCourse = new CourseDaoList();
+    private static StudentDao getStudent = new StudentDaoList();
+
     public static void main( String[] args ) {
+
+        Course course0 = new Course(CourseId.nextId(), "Test1",LocalDate.parse("2020-01-01"),3);
+        Course course1 = new Course(CourseId.nextId(), "Test2",LocalDate.parse("2020-01-02"),4);
+        Course course2 = new Course(CourseId.nextId(), "Test3",LocalDate.parse("2020-01-03"),5);
+        getCourse.saveCourse(course0);
+        getCourse.saveCourse(course1);
+        getCourse.saveCourse(course2);
+
+        Student student0 = new Student(StudentId.nextId(),"TestName1","testMail1","TestAddress0");
+        Student student1 = new Student(StudentId.nextId(),"TestName2","testMail2","TestAddress1");
+        Student student2 = new Student(StudentId.nextId(),"TestName3","testMail3","TestAddress2");
+        getStudent.saveStudent(student0);
+        getStudent.saveStudent(student1);
+        getStudent.saveStudent(student2);
+
 
         Scanner input = new Scanner(System.in);
         boolean runUntil = true;
