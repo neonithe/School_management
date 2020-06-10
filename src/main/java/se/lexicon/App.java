@@ -44,8 +44,11 @@ public class App
         getStudent.saveStudent(student1);
         getStudent.saveStudent(student2);
 
+        course0.register(student0);
+        course0.register(student1);
 
         Scanner input = new Scanner(System.in);
+        String line = "-----------------------------------------------------------------------------";
         boolean runUntil = true;
         int selection = 0;
 
@@ -59,7 +62,8 @@ public class App
                     "6: Find course\n" +
                     "7: Edit student\n" +
                     "8: Edit course\n" +
-                    "0: Exit / Quit\n");
+                    "9: Students on a course\n" +
+                    "0: Exit / Quit");
             System.out.print("Input:");
 
             while (!input.hasNextInt())
@@ -71,39 +75,48 @@ public class App
             selection = input.nextInt();
             switch (selection) {
                 case 1:
-                    System.out.println("Not done");
+                    System.out.println(line);
                     addCourse();
                     break;
                 case 2:
-                    System.out.println("Not done");
+                    System.out.println(line);
                     addStudent();
                     break;
                 case 3:
-                    System.out.println("Not done");
+                    System.out.println(line);
                     addToCourse();
                     break;
                 case 4:
-                    System.out.println("Not done");
+                    System.out.println(line);
                     removeFromCourse();
                     break;
                 case 5:
-                    System.out.println("Not done");
+                    System.out.println(line);
+                    findStudent();
                     break;
                 case 6:
-                    System.out.println("Not done");
+                    System.out.println(line);
                     findCourse();
                     break;
                 case 7:
-                    System.out.println("Not done");
+                    System.out.println(line);
+                    editStudent();
                     break;
                 case 8:
-                    System.out.println("Not done");
+                    System.out.println(line);
+                    editCourse();
+                    break;
+                case 9:
+                    System.out.println(line);
+                    studentCourse();
                     break;
                 case 0:
                     System.out.println("Closing application");
+                    runUntil = false;
                     break;
                 default:
                     System.out.println("Unknown selection, please try again");
+
             }
         } while(runUntil);
     }

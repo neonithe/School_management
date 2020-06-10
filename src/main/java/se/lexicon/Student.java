@@ -38,5 +38,9 @@ public class Student {
         this.address = address;
     }
 
+    @Override
+    public String toString() {
+        return "Student:  Id: " + id + " | Name: " + name + " | Email: " + email + " | Address: " + address;
 
+    }
 }

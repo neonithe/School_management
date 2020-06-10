@@ -43,6 +43,10 @@ public class StudentDaoList implements StudentDao{
         }return null;
     }
     @Override
+    public List<Student> findAll(){
+        return students;
+    }
+    @Override
     public boolean deleteStudent(Student student) {
         students.remove(student);
         return true;
