@@ -57,4 +57,9 @@ public class Course {
         students.remove(student);
     }
 
+    @Override
+    public String toString() {
+        return "Course: Id: " + id + " | Name: " + courseName + " | Startdate: " + startDate + " | Duration: " + weekDuration;
+
+    }
 }

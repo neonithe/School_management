@@ -13,50 +13,111 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static se.lexicon.Menu.addCourse;
+import static se.lexicon.Menu.findCourse;
+
 /**
- ** Hello world!
- **/
+
+ • Create new Courses and Students
+ • Register and remove Students to/from Courses
+ • Finding Students and Courses in various ways
+ • Edit Students and Courses
+
+**/
 public class App
 {
-
-
-
     public static void main( String[] args ) {
 
-        CourseDao getCourse = new CourseDaoList();
+        Scanner input = new Scanner(System.in);
+        boolean runUntil = true;
+        int selection = 0;
 
-        Course course1 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-06"),7);
-        Course course2 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-06"),8);
-        Course course3 = new Course(CourseId.nextId(),"TestC2", LocalDate.parse("2020-04-08"),9);
-        getCourse.saveCourse(course1);
-        getCourse.saveCourse(course2);
-        getCourse.saveCourse(course3);
+        do {
+            System.out.println("Menu:\n" +
+                    "1: Add course\n" +
+                    "2: Add student\n" +
+                    "3: Register student to course\n" +
+                    "4: Remove student from course\n" +
+                    "5: Find student\n" +
+                    "6: Find course\n" +
+                    "7: Edit student\n" +
+                    "8: Edit course\n" +
+                    "0: Exit / Quit\n");
+            System.out.print("Input:");
 
-        Student student0 = new Student(StudentId.nextId(),"TestS1","@Email","Address");
-        Student student1 = new Student(StudentId.nextId(),"TestS1","@Email2","Address");
-        Student student2 = new Student(StudentId.nextId(),"TestS2","@Email3","Address");
-       // Course course1 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-06"),7);
-
-        getCourse.saveCourse(course1).register(student0);
-        getCourse.saveCourse(course1).register(student1);
-        getCourse.saveCourse(course1).register(student2);
-
-        System.out.println(course1.getStudents().size());
-       // getCourse.saveCourse(course1).unregister(student0);
-        System.out.println(course1.getStudents().size());
-
-        for(Student p : course1.getStudents()){
-            System.out.println(p.getName());
-        }
-
-
+            while (!input.hasNextInt())
+            {
+                System.out.println("Not valid number");
+                System.out.println("Input:");
+                input.next();
+            }
+            selection = input.nextInt();
+            switch (selection) {
+                case 1:
+                    System.out.println("Not done");
+                    addCourse();
+                    break;
+                case 2:
+                    System.out.println("Not done");
+                    break;
+                case 3:
+                    System.out.println("Not done");
+                    break;
+                case 4:
+                    System.out.println("Not done");
+                    break;
+                case 5:
+                    System.out.println("Not done");
+                    break;
+                case 6:
+                    System.out.println("Not done");
+                    findCourse();
+                    break;
+                case 7:
+                    System.out.println("Not done");
+                    break;
+                case 8:
+                    System.out.println("Not done");
+                    break;
+                case 0:
+                    System.out.println("Closing application");
+                    break;
+                default:
+                    System.out.println("Unknown selection, please try again");
+            }
+        } while(runUntil);
     }
-
 }
 
 /**
  *
 
+
+ CourseDao getCourse = new CourseDaoList();
+
+ Course course1 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-06"),7);
+ Course course2 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-06"),8);
+ Course course3 = new Course(CourseId.nextId(),"TestC2", LocalDate.parse("2020-04-08"),9);
+ getCourse.saveCourse(course1);
+ getCourse.saveCourse(course2);
+ getCourse.saveCourse(course3);
+
+ Student student0 = new Student(StudentId.nextId(),"TestS1","@Email","Address");
+ Student student1 = new Student(StudentId.nextId(),"TestS1","@Email2","Address");
+ Student student2 = new Student(StudentId.nextId(),"TestS2","@Email3","Address");
+ // Course course1 = new Course(CourseId.nextId(),"TestC1", LocalDate.parse("2020-04-06"),7);
+
+ getCourse.saveCourse(course1).register(student0);
+ getCourse.saveCourse(course1).register(student1);
+ getCourse.saveCourse(course1).register(student2);
+
+ System.out.println(course1.getStudents().size());
+ // getCourse.saveCourse(course1).unregister(student0);
+ System.out.println(course1.getStudents().size());
+
+ for(Student p : course1.getStudents()){
+ System.out.println(p.getName());
+ }
 
 
  List<Student> students = new ArrayList<>();
@@ -122,20 +183,14 @@ public class App
 
  /** NOT A COMMAND LINE USER INTERFACE, BUT SOMETHING ANYWAY **/
     /**
-     Create new Courses and Students
+
+     • Create new Courses and Students
      • Register and remove Students to/from Courses
      • Finding Students and Courses in various ways
      • Edit Students and Courses
 
-
-
-
-
  private StudentDao getStudent = new StudentDaoList();
  private CourseDao getCourse = new CourseDaoList();
-
-
-
 
  System.out.println("Menu:\n" +
  "1: Add course\n" +
